@@ -39,11 +39,13 @@ $RECYCLE.BIN/
 #-------------------------
 # Environment Files
 #-------------------------
-# These should never be under version control,
-# as it poses a security risk.
 .env
 .vagrant
 Vagrantfile
+
+#-------------------------
+# Application Config (exclude DB config like .env)
+app/Config/Database.php
 
 #-------------------------
 # Temporary Files
@@ -77,8 +79,6 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 # Test Files
 #-------------------------
 tests/coverage*
-
-# Don't save phpunit under version control.
 phpunit
 
 #-------------------------
@@ -89,14 +89,8 @@ vendor/
 #-------------------------
 # IDE / Development Files
 #-------------------------
-
-# Modules Testing
 _modules/*
-
-# phpenv local config
 .php-version
-
-# Jetbrains editors (PHPStorm, etc)
 .idea/
 *.iml
 
