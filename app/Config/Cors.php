@@ -4,102 +4,28 @@ namespace Config;
 
 use CodeIgniter\Config\BaseConfig;
 
-/**
- * Cross-Origin Resource Sharing (CORS) Configuration
- *
- * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
- */
 class Cors extends BaseConfig
 {
-    /**
-     * The default CORS configuration.
-     *
-     * @var array{
-     *      allowedOrigins: list<string>,
-     *      allowedOriginsPatterns: list<string>,
-     *      supportsCredentials: bool,
-     *      allowedHeaders: list<string>,
-     *      exposedHeaders: list<string>,
-     *      allowedMethods: list<string>,
-     *      maxAge: int,
-     *  }
-     */
     public array $default = [
-        /**
-         * Origins for the `Access-Control-Allow-Origin` header.
-         *
-         * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin
-         *
-         * E.g.:
-         *   - ['http://localhost:8080']
-         *   - ['https://www.example.com']
-         */
-        'allowedOrigins' => [],
+        // 허용할 Origin (프론트엔드 주소)
+        'allowedOrigins' => ['http://localhost:3000', 'https://www.example.com'],
 
-        /**
-         * Origin regex patterns for the `Access-Control-Allow-Origin` header.
-         *
-         * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin
-         *
-         * NOTE: A pattern specified here is part of a regular expression. It will
-         *       be actually `#\A<pattern>\z#`.
-         *
-         * E.g.:
-         *   - ['https://\w+\.example\.com']
-         */
+        // 정규식 패턴으로 Origin 허용 (필요 시)
         'allowedOriginsPatterns' => [],
 
-        /**
-         * Weather to send the `Access-Control-Allow-Credentials` header.
-         *
-         * The Access-Control-Allow-Credentials response header tells browsers whether
-         * the server allows cross-origin HTTP requests to include credentials.
-         *
-         * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials
-         */
-        'supportsCredentials' => false,
+        // 쿠키/세션 등 Credential 허용 여부
+        'supportsCredentials' => true,
 
-        /**
-         * Set headers to allow.
-         *
-         * The Access-Control-Allow-Headers response header is used in response to
-         * a preflight request which includes the Access-Control-Request-Headers to
-         * indicate which HTTP headers can be used during the actual request.
-         *
-         * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers
-         */
-        'allowedHeaders' => [],
+        // 허용할 요청 헤더
+        'allowedHeaders' => ['Content-Type', 'Authorization'],
 
-        /**
-         * Set headers to expose.
-         *
-         * The Access-Control-Expose-Headers response header allows a server to
-         * indicate which response headers should be made available to scripts running
-         * in the browser, in response to a cross-origin request.
-         *
-         * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers
-         */
+        // 브라우저에서 접근 가능한 응답 헤더
         'exposedHeaders' => [],
 
-        /**
-         * Set methods to allow.
-         *
-         * The Access-Control-Allow-Methods response header specifies one or more
-         * methods allowed when accessing a resource in response to a preflight
-         * request.
-         *
-         * E.g.:
-         *   - ['GET', 'POST', 'PUT', 'DELETE']
-         *
-         * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods
-         */
-        'allowedMethods' => [],
+        // 허용할 HTTP 메서드
+        'allowedMethods' => ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
 
-        /**
-         * Set how many seconds the results of a preflight request can be cached.
-         *
-         * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age
-         */
+        // Preflight 결과 캐시 시간(초)
         'maxAge' => 7200,
     ];
 }
