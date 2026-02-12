@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Ssr;
+use App\Controllers\BaseController;
 
 use App\Services\CpuService;
 

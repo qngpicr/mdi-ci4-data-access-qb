@@ -13,14 +13,14 @@ $routes->get('/', 'MainController::index');
 $routes->get('routes', 'RouteInfoController::index');
 
 // CSR (Client-Side Rendering)
-$routes->get('csr/cpus', 'CpuCsrController::csrCpus');
-$routes->get('csr/devices', 'DeviceCsrController::csrDevices');
-$routes->get('csr/members', 'MemberCsrController::csrMembers');
+$routes->get('csr/cpus', 'Csr\CpuCsrController::csrCpus');
+$routes->get('csr/devices', 'Csr\DeviceCsrController::csrDevices');
+$routes->get('csr/members', 'Csr\MemberCsrController::csrMembers');
 
 // SSR (Server-Side Rendering)
-$routes->get('ssr/cpus', 'CpuSsrController::ssrCpus');
-$routes->get('ssr/devices', 'DeviceSsrController::ssrDevices');
-$routes->get('ssr/members', 'MemberSsrController::ssrMembers');
+$routes->get('ssr/cpus', 'Ssr\CpuSsrController::ssrCpus');
+$routes->get('ssr/devices', 'Ssr\DeviceSsrController::ssrDevices');
+$routes->get('ssr/members', 'Ssr\MemberSsrController::ssrMembers');
 
 // REST API (자동 매핑)
 // resource()는 기본적으로 index/show/create/update/delete 라우트를 자동 생성합니다.
