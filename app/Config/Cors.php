@@ -9,7 +9,7 @@ class Cors extends BaseConfig
     public array $default = [
         // 허용할 Origin (프론트엔드 주소)
         // 'allowedOrigins' => ['http://localhost:3000', 'https://www.example.com'],
-        'allowedOrigins' => ['http://localhost:9300'],
+        'allowedOrigins' => ['http://localhost:9041'],
 
 
         // 정규식 패턴으로 Origin 허용 (필요 시)
